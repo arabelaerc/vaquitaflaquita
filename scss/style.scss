@@ -1,0 +1,198 @@
+/*Settings colors*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900');
+
+$green : rgba(138, 230, 92, 1);
+$pink :rgba(230, 46, 153, 1);
+$white: #FFFFFF;
+$gray-dark : #2b2b2b;
+$gray-soft : #B7B7B7;
+$gray-light: #f7f7f7;
+
+
+/*Text aligment*/
+@mixin text-alignment($text-align){
+  text-align: $text-align;
+}
+@mixin transform-txt($text-transform){
+  text-transform: $text-transform;
+}
+/*Position*/
+@mixin positioned-in($position){
+  position: $position;
+}
+/*Height and width*/
+
+@mixin height($height){
+  height: $height;
+}
+@mixin min-height($min-height){
+  min-height: $min-height;
+}
+@mixin width($width){
+  width: $width;
+}
+
+/*Borders*/
+@mixin border-radius($radius) {
+   border-radius: $radius;
+}
+@mixin border-style-width($border){
+   border : $border;
+}
+
+
+/*Containers*/
+.container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media screen and (max-width: 1200px){
+  .container {
+    width: 1140px;
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 992px){
+  .container {
+    width: 960px;
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 1200px){
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 992px){
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+/*Grid*/
+
+$columns : 12;
+$column-width : 100%/$columns;
+$breakpoints : (xs : 0, sm : 768px, md : 992px, lg : 1200px );
+[class*="col-"] {
+  float: left;
+  padding: 0 0;
+}
+@function column-width($column){
+  @return $column-width*$column;
+}
+@mixin column($media, $min-width){
+  @media (min-width:$min-width){
+    @for $i from 1 through $columns {
+      .col-#{$media}-#{$i} {
+        width: column-width($i);
+      }
+    }
+  }
+}
+@each $name, $width in $breakpoints {
+  @include column($name, $width);
+}
+.row {
+  margin: 0 auto;
+  &::before {
+    content: '';
+    clear: both;
+	  display:table;
+  }
+}
+/*Paddings and margins*/
+
+@mixin padding-height($top, $bottom:0){
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+@mixin padding-width($left, $right:0){
+  padding-left: $left;
+  padding-right: $right;
+}
+@mixin margin-height($top, $bottom:0){
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+@mixin margin-width($left, $right:0){
+  margin-left: $left;
+  margin-right: $right;
+}
+/*Flex*/
+
+@mixin flex-container{
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+@mixin flex-start { -webkit-align-self: flex-start; align-self: flex-start; }
+@mixin flex-end { -webkit-align-self: flex-end; align-self: flex-end; }
+@mixin center { -webkit-align-self: center; align-self: center; }
+@mixin baseline { -webkit-align-self: baseline; align-self: baseline; }
+@mixin stretch { -webkit-align-self: stretch; align-self: stretch; }
+/*Background*/
+@mixin background-settings{
+  background-image:  url(../img/group.jpg);
+  background-position: center;
+  background-size: cover;
+}
+@mixin background-color($background-color){
+  background-color: $background-color;
+}
+/*General Styles*/
+/*Widths*/
+.img-responsive{
+  @include width(100%);
+}
+/*Backgrounds*/
+.bg-gray-light {
+  background-color: $gray-light;
+}
+/**/
+html, body{
+  border:0;
+  margin:0;
+  padding:0;
+}
+html {
+  min-height: 100%;
+}
+body {
+  min-height: 100%;
+}
+h1,h2,h3,h4,h5,h6,p,span,input,a,label,.text-profile, th, td, placeholder{font-family: 'Source Sans Pro', sans-serif};
+
+header.menu-header{
+  .container{
+    .row{
+      .col-md-6{
+        img{
+          @include padding-height($top:5%,$bottom:0);
+          @include width(58%);
+        }
+        p:first{
+          @include padding-height($top:15%,$bottom:0);
+        }
+        p{
+          font-size: 13px;
+          @include text-alignment(right) ;
+        }
+      }
+    }
+  }
+}
