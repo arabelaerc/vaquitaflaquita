@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900');
 
 $green : rgba(138, 230, 92, 1);
+$green-light:rgba(195, 221, 177, 1);
 $pink :rgba(230, 46, 153, 1);
 $white: #FFFFFF;
 $gray-dark : #2b2b2b;
@@ -9,15 +10,18 @@ $gray-soft : #B7B7B7;
 $gray-light: #f7f7f7;
 
 
-/*Text aligment*/
+/*Text and aligment*/
 @mixin text-alignment($text-align){
   text-align: $text-align;
 }
 @mixin transform-txt($text-transform){
   text-transform: $text-transform;
 }
+@mixin decoration-txt($text-decoration){
+  text-decoration: $text-decoration;
+}
 /*Position*/
-@mixin positioned-in($position){
+@mixin position($position){
   position: $position;
 }
 /*Height and width*/
@@ -39,7 +43,12 @@ $gray-light: #f7f7f7;
 @mixin border-style-width($border){
    border : $border;
 }
-
+@mixin border-top($border-top){
+   border-top : $border-top;
+}
+@mixin border-bottom($border-bottom){
+   border-bottom : $border-bottom;
+}
 
 /*Containers*/
 .container {
@@ -103,6 +112,13 @@ $breakpoints : (xs : 0, sm : 768px, md : 992px, lg : 1200px );
     content: '';
     clear: both;
 	  display:table;
+  }
+}
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
   }
 }
 /*Paddings and margins*/
@@ -180,18 +196,59 @@ h1,h2,h3,h4,h5,h6,p,span,input,a,label,.text-profile, th, td, placeholder{font-f
 header.menu-header{
   .container{
     .row{
-      .col-md-6{
+      @include clearfix;
+      .col-md-6:first-child{
         img{
-          @include padding-height($top:5%,$bottom:0);
+          @include padding-height($top:10%,$bottom:0);
           @include width(58%);
         }
-        p:first{
-          @include padding-height($top:15%,$bottom:0);
+      }
+      .col-md-6:nth-child(2){
+        p:first-child{
+          @include padding-height($top:10%,$bottom:0);
         }
         p{
+          a{
+            img{
+              @include width(5%);
+              top: 7px;
+              @include position(relative);
+            }
+          }
           font-size: 13px;
           @include text-alignment(right) ;
         }
+      }
+      .col-md-2{
+        @include text-alignment(center);
+        @include transform-txt(uppercase);
+        @include margin-height(3%);
+        div{
+          @include margin-width($left:15px, $right:15px);
+          @include background-color($green);
+          @include padding-height($top:10%,$bottom:10%);
+          @include border-radius(15px);
+          font-size: 14px;
+          a{
+            color:$gray-dark;
+            @include decoration-txt(none);
+          }
+        }
+      }
+      .col-md-2:last-child{
+        div{
+          @include background-color($pink);
+        }
+      }
+    }
+  }
+}
+section.first-section{
+  .container{
+    .row{
+      div.line{
+        @include border-bottom(2px solid $green-light);
+        @include margin-height($top:45px,$bottom:0);
       }
     }
   }
