@@ -191,7 +191,7 @@ html {
 body {
   min-height: 100%;
 }
-h1,h2,h3,h4,h5,h6,p,span,input,a,label,.text-profile, th, td, placeholder{font-family: 'Source Sans Pro', sans-serif};
+h1,h2,h3,h4,h5,h6,p,span,input,a,label,.text-profile, th, td, placeholder, pre{font-family: 'Source Sans Pro', sans-serif};
 
 header.menu-header{
   .container{
@@ -215,7 +215,7 @@ header.menu-header{
               @include position(relative);
             }
           }
-          font-size: 13px;
+          font-size: 0.8rem;
           @include text-alignment(right) ;
         }
       }
@@ -228,7 +228,7 @@ header.menu-header{
           @include background-color($green);
           @include padding-height($top:10%,$bottom:10%);
           @include border-radius(15px);
-          font-size: 14px;
+          font-size: 0.9rem;
           a{
             color:$gray-dark;
             @include decoration-txt(none);
@@ -246,10 +246,40 @@ header.menu-header{
 section.first-section{
   .container{
     .row{
+      .col-md-8{
+        h3{
+          color: $green-light;
+          @include margin-height($top:15px,$bottom:0);
+          font-size: 2.58rem;
+        }
+        h4{
+          color: $green;
+          @include margin-height($top:15px,$bottom:0);
+          font-size: 2.58rem;
+        }
+        h5{
+          color: $gray-dark;
+          font-size: 2.5rem;
+          @include margin-height($top:15px,$bottom:0);;
+        }
+      }
       div.line{
         @include border-bottom(2px solid $green-light);
         @include margin-height($top:45px,$bottom:0);
       }
+     .col-md-4{
+       img.testimonial{
+         @include height(300px);
+       }
+       h4{
+         font-size: 3.1rem;
+         @include margin-height($top:0,$bottom:0);
+         color: $green-light;
+       }
+       pre{
+         @include text-alignment(justify) ;
+       }
+     }
     }
   }
 }
