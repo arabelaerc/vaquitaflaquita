@@ -195,6 +195,11 @@ h1,h2,h3,h4,h5,h6,p,span,input,a,label,.text-profile, th, td, placeholder, pre, 
 {
   font-family: 'Source Sans Pro', sans-serif;
 };
+h4{
+  color: $green;
+  @include margin-height($top:15px,$bottom:0);
+  font-size: 2.58rem;
+}
 
 header.menu-header{
   .container{
@@ -252,11 +257,6 @@ section.first-section{
       .col-md-8{
         h3{
           color: $green-light;
-          @include margin-height($top:15px,$bottom:0);
-          font-size: 2.58rem;
-        }
-        h4{
-          color: $green;
           @include margin-height($top:15px,$bottom:0);
           font-size: 2.58rem;
         }
