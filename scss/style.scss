@@ -191,7 +191,10 @@ html {
 body {
   min-height: 100%;
 }
-h1,h2,h3,h4,h5,h6,p,span,input,a,label,.text-profile, th, td, placeholder, pre{font-family: 'Source Sans Pro', sans-serif};
+h1,h2,h3,h4,h5,h6,p,span,input,a,label,.text-profile, th, td, placeholder, pre, strong, center
+{
+  font-family: 'Source Sans Pro', sans-serif;
+};
 
 header.menu-header{
   .container{
@@ -265,11 +268,12 @@ section.first-section{
       }
       div.line{
         @include border-bottom(2px solid $green-light);
-        @include margin-height($top:45px,$bottom:0);
+        @include margin-height($top:45px,$bottom:5px);
       }
      .col-md-4{
        img.testimonial{
          @include height(300px);
+         @include margin-height($top:15px,$bottom:0);
        }
        h4{
          font-size: 3.1rem;
@@ -280,6 +284,92 @@ section.first-section{
          @include text-alignment(justify) ;
        }
      }
+     .col-md-6.up,
+     .col-md-6.down{
+       @include margin-height($top:0,$bottom:25px);
+     }
+     .col-md-6{
+       div{
+         @include margin-width($left:15px, $right:15px);
+         img{
+           @include height(390px !important);
+         }
+       }
+     }
+    }
+  }
+}
+section.testimonial-section{
+  .container{
+    .row{
+      .col-md-8,
+      .col-md-4{
+        h3{
+          color: $green-light;
+          @include margin-height($top:15px,$bottom:0);
+          font-size: 2.58rem;
+        }
+        h5{
+          color: $gray-dark;
+          font-size: 2.5rem;
+          @include margin-height($top:15px,$bottom:0);;
+        }
+      }
+      .col-md-6.up,
+      .col-md-6.down{
+        @include margin-height($top:0,$bottom:25px);
+      }
+      .col-md-6{
+        div{
+          @include margin-width($left:15px, $right:15px);
+          img{
+            @include height(612px);
+          }
+        }
+        .col-md-12{
+          img{
+            @include height(150px);
+          }
+        }
+      }
+    }
+  }
+}
+.testimonial--picture--small{
+  div{
+    img{
+      @include height(150px !important);
+    }
+  }
+}
+footer{
+  .row{
+    .button-buy{
+      @include background-color($pink);
+      @include padding-height($top:2%,$bottom:2%);
+      @include border-radius(15px);
+      @include width(30%);
+      font-size: 1.2rem;
+      a{
+        @include decoration-txt(none);
+        color: $gray-dark;
+      }
+    }
+    .social-media{
+      center{
+        span{
+          @include margin-height($top:25px,$bottom:0);
+          a{
+            img{
+              @include width(2%);
+              top: 7px;
+              @include position(relative);
+            }
+          }
+          font-size: 0.8rem;
+          @include text-alignment(right) ;
+        }
+      }
     }
   }
 }
