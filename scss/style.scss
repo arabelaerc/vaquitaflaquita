@@ -342,33 +342,31 @@ section.testimonial-section{
     }
   }
 }
-footer{
-  .row{
-    .button-buy{
-      @include background-color($pink);
-      @include padding-height($top:2%,$bottom:2%);
-      @include border-radius(15px);
-      @include width(30%);
-      font-size: 1.2rem;
-      a{
-        @include decoration-txt(none);
-        color: $gray-dark;
-      }
+.row{
+  .button-buy{
+    @include background-color($pink);
+    @include padding-height($top:2%,$bottom:2%);
+    @include border-radius(15px);
+    @include width(30%);
+    font-size: 1.2rem;
+    a{
+      @include decoration-txt(none);
+      color: $gray-dark;
     }
-    .social-media{
-      center{
-        span{
-          @include margin-height($top:25px,$bottom:0);
-          a{
-            img{
-              @include width(2%);
-              top: 7px;
-              @include position(relative);
-            }
+  }
+  .social-media{
+    center{
+      span{
+        @include margin-height($top:25px,$bottom:0);
+        a{
+          img{
+            @include width(2%);
+            top: 7px;
+            @include position(relative);
           }
-          font-size: 0.8rem;
-          @include text-alignment(right) ;
         }
+        font-size: 0.8rem;
+        @include text-alignment(right) ;
       }
     }
   }
